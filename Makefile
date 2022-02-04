@@ -5,7 +5,7 @@ all:
 	g++ -c "src/utils.cpp" -o utils.o
 	g++ -c "src/ecs/cryo_entity.cpp" -o cryoentity.o
 	g++ -c "src/systems/entity_system.cpp" -o enttsys.o
-	g++ -c "src/ecs/components/cryo_components.cpp" -o cmps.o
+	g++ -c "src/ecs/components/cryo_component.cpp" -o cmps.o
 	g++ -c "src/ecs/components/cryo_transform.cpp" -o trnsfrm.o
 	g++ -std=c++17 -ggdb -Iinclude -o cryoengine-app main.o utils.o cryoentity.o enttsys.o cmps.o trnsfrm.o $(LIBS)
 

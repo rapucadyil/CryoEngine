@@ -5,13 +5,13 @@
 
 class cryoCOMPONENT {
 protected:
-    str component_name;
+    const char *component_name;
     uint32 uuid;
 
 public:
 
-    cryoCOMPONENT(str name, uint32 uuid);
-    virtual ~cryoCOMPONENT() = 0;
+    cryoCOMPONENT(const char *name, uint32 uuid);
+    ~cryoCOMPONENT() {}
 
     void tick(float dt);
 };

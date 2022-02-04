@@ -10,7 +10,7 @@ cryoSYS_E::~cryoSYS_E() {
     delete this;
 }
 
-void cryoSYS_E::create_entity(uint32 uuid, str name,std::vector<char*> t) {
+void cryoSYS_E::create_entity(uint32 uuid, const char *name,std::vector<char*> t) {
     cryoOBJ *obj = new cryoOBJ(name, uuid, t);
     this->entities.push_back(obj);
 }
@@ -30,7 +30,7 @@ void cryoSYS_E::tick(float dt) {
     }
 }
 
-cryoOBJ* cryoSYS_E::get_entity_by_tag(str tag) {
+cryoOBJ* cryoSYS_E::get_entity_by_tag(char *tag) {
     for (size_t i = 0; i < this->entities.size(); i++) {
         for (size_t j = 0; j < this->entities[i]->tags.size(); j++) {
             if (this->entities[i]->tags[j] == tag) {
@@ -38,4 +38,5 @@ cryoOBJ* cryoSYS_E::get_entity_by_tag(str tag) {
             }
         }
     }
+    return nullptr;
 }

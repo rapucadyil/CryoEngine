@@ -1,6 +1,6 @@
-#include "cryo_components.h"
+#include "cryo_component.h"
 
-cryoCOMPONENT::cryoCOMPONENT(str n, uint32 uuid) {
+cryoCOMPONENT::cryoCOMPONENT(const char *n, uint32 uuid) {
     this->component_name = n;
     this->uuid = uuid;
 }

@@ -11,7 +11,7 @@ cryoTRANSFORM::~cryoTRANSFORM() {
 }
 
 void cryoTRANSFORM::tick(float dt) {
-
+    //TODO -> blank for now
 }
 
 void cryoTRANSFORM::move(sf::Vector2f spd) {

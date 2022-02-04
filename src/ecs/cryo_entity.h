@@ -4,14 +4,14 @@
 #include <vector>
 class cryoOBJ {
 protected:
-    str name;
+    const char *name;
     uint32 uuid;
 public:
     std::vector<char*> tags;
     std::vector<class cryoCOMPONENT*> components;
-    
+
 public:
-    cryoOBJ(str n, uint32 id, std::vector<char*> t);
+    cryoOBJ(const char *n, uint32 id, std::vector<char*> t);
     ~cryoOBJ();
     
     void tick(float dt);
@@ -29,4 +29,8 @@ public:
         return nullptr;
     }
     
+    const char *get_name() {return this->name;}
+    uint32 get_uuid() {return this->uuid;}
+
+
 };

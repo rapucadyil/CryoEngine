@@ -1,8 +1,8 @@
 #include "cryo_entity.h"
-#include "components/cryo_components.h"
+#include "components/cryo_component.h"
 #include <stdio.h>
 
-cryoOBJ::cryoOBJ(str n, uint32 id, std::vector<char*> t) {
+cryoOBJ::cryoOBJ(const char * n, uint32 id, std::vector<char*> t) {
   this->name = n;
   this->uuid = id;
   this->tags = t;

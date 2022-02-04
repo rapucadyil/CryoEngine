@@ -1,6 +1,6 @@
 #ifndef CRYO_TRANSFORM_H
 #define CRYO_TRANSFORM_H
-#include "cryo_components.h"
+#include "cryo_component.h"
 #include <SFML/Graphics.hpp>
 class cryoTRANSFORM : public cryoCOMPONENT {
 private:

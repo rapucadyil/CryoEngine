@@ -13,4 +13,4 @@
 #define real32               float
 #define real64               double
 #define byte                 unsigned char
-#define str                  const char *
+//#define str                  char *

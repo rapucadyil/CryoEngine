@@ -12,6 +12,7 @@ int main(int argc, char* argv[]) {
     sf::CircleShape shape(100.0f);
     shape.setFillColor(sf::Color::Red);
     sys->create_entity(0, "Player",{(char*)"player"});
+    cryoOBJ *player = sys->get_entity_by_tag("player");
     // game loop
     while(window.isOpen()) {
         sf::Event evt; 
