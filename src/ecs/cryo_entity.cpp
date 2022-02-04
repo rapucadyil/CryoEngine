@@ -1,10 +1,26 @@
 #include "cryo_entity.h"
+#include "components/cryo_components.h"
 #include <stdio.h>
 
-void tick(float dt, cryoENTITY* ent) {
-  printf("ticking from entity %s\n", ent->name);
+cryoOBJ::cryoOBJ(str n, uint32 id, std::vector<char*> t) {
+  this->name = n;
+  this->uuid = id;
+  this->tags = t;
+  this->components = std::vector<cryoCOMPONENT*>();
 }
 
-void render(float dt, cryoENTITY* ent) {
-  printf("rendering entity %s\n", ent->name);
+cryoOBJ::~cryoOBJ() {
+  delete this;
+}
+
+void cryoOBJ::tick(float dt) {
+  printf("ticking from entity %s\n", this->name);
+}
+
+void cryoOBJ::render(float dt) {
+
+}
+
+void cryoOBJ::add_component(cryoCOMPONENT *cmp) {
+  this->components.push_back(cmp);
 }

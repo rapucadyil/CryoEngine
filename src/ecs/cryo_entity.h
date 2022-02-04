@@ -2,16 +2,31 @@
 #include <stdint.h>
 #include "../engine_defs.h"
 #include <vector>
-typedef struct entity_t {
+class cryoOBJ {
+protected:
+    str name;
+    uint32 uuid;
+public:
+    std::vector<char*> tags;
+    std::vector<class cryoCOMPONENT*> components;
+    
+public:
+    cryoOBJ(str n, uint32 id, std::vector<char*> t);
+    ~cryoOBJ();
+    
+    void tick(float dt);
+    void render(float dt);
 
-  str name;
-  uint32 uuid;
-  std::vector<char*> tags;
+    void add_component(cryoCOMPONENT* cmp);
 
-
-}cryoENTITY;
-
-
-void tick(float dt, cryoENTITY* ent);
-
-void render(float dt, cryoENTITY* ent);
+    template <typename T>
+    T* get_component() {
+        for (cryoCOMPONENT *cmp : components) {
+            if(dynamic_cast<T*>(cmp)) {
+                return (T*)cmp;
+            }
+        }
+        return nullptr;
+    }
+    
+};

@@ -1,11 +1,19 @@
 #include <vector>
+#include "../engine_defs.h"
+class cryoSYS_E {
 
-typedef struct ent_sys_t {
-  std::vector<struct entity_t*> entities;
-}cryoENTTSYS;
+private:
+  std::vector<class cryoOBJ*> entities;
 
-int init_system(cryoENTTSYS* sys);
+public:
+  cryoSYS_E();
+  ~cryoSYS_E();
 
-//TODO -> remove the cryoENTITY* return type if not needed later
-struct entity_t* create_entity(cryoENTTSYS* sys, uint32 uuid, str name);
+  void create_entity(uint32 uuid, str name, std::vector<char*> t);
+  void remove_entity();
+
+  void tick(float dt);
+
+  cryoOBJ* get_entity_by_tag(str tag);
+};
 

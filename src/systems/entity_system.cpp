@@ -1,28 +1,41 @@
 #include "entity_system.h"
 #include "../ecs/cryo_entity.h"
+#include <stdio.h>
 
-int init_system(cryoENTTSYS* sys) {
-  int res_code = 0;
-  sys = CRYO_MALLOC(cryoENTTSYS, cryoENTTSYS*, 1);
-  sys->entities = std::vector<cryoENTITY*>();
-  if(sys != NULL) {
-    return 0;
-  }
-  return -1;
+cryoSYS_E::cryoSYS_E() {
+    this->entities = std::vector<cryoOBJ*>();
 }
 
+cryoSYS_E::~cryoSYS_E() {
+    delete this;
+}
 
-//TODO -> remove the cryoENTTY* return type if needed later.
-cryoENTITY* create_entity(cryoENTTSYS* sys, uint32 uuid, str name) {
-  cryoENTITY* e = CRYO_MALLOC(cryoENTITY, cryoENTITY*, 1);
-  e->uuid = uuid;
-  e->name = name;
-  if(e != NULL) {
-    sys->entities.push_back(e);
-    fprintf(stdout, "Successfully created entity %s\n"e->name);
+void cryoSYS_E::create_entity(uint32 uuid, str name,std::vector<char*> t) {
+    cryoOBJ *obj = new cryoOBJ(name, uuid, t);
+    this->entities.push_back(obj);
+}
 
-  }else{
-    fprintf(stderr, "Could not create entity exiting...\n");
-    exit(-1);
-  }
+void cryoSYS_E::remove_entity() {
+    
+}
+
+void cryoSYS_E::tick(float dt) {
+    if (this->entities.size() > 0) {
+        for(cryoOBJ* obj : this->entities) {
+            obj->tick(dt);
+        }
+    }else{
+        fprintf(stderr, "Error in Entity System @method:tick(float dt) - entities is empty\n");
+        exit(-1);
+    }
+}
+
+cryoOBJ* cryoSYS_E::get_entity_by_tag(str tag) {
+    for (size_t i = 0; i < this->entities.size(); i++) {
+        for (size_t j = 0; j < this->entities[i]->tags.size(); j++) {
+            if (this->entities[i]->tags[j] == tag) {
+                return this->entities[i];
+            }
+        }
+    }
 }
