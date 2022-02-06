@@ -1,7 +1,7 @@
 #include "cryo_transform.h"
 
-cryoTRANSFORM::cryoTRANSFORM(float x, float y)
-    :cryoCOMPONENT("Transform", 0) {
+cryoTRANSFORM::cryoTRANSFORM(float x, float y, cryoOBJ& parent)
+    :cryoCOMPONENT("Transform", 0, parent) {
 
     this->position = sf::Vector2f(x,y);
 }

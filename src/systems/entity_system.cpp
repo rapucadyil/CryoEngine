@@ -10,8 +10,8 @@ cryoSYS_E::~cryoSYS_E() {
     delete this;
 }
 
-void cryoSYS_E::create_entity(uint32 uuid, const char *name,std::vector<char*> t) {
-    cryoOBJ *obj = new cryoOBJ(name, uuid, t);
+void cryoSYS_E::create_entity(uint32 uuid, const char *name,std::vector<char*> t, float x, float y) {
+    cryoOBJ *obj = new cryoOBJ(name, uuid, t, x, y);
     this->entities.push_back(obj);
 }
 

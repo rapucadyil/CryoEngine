@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/rpucadyi_integra/Documents/Cryoengine/CryoEngine",
+            "binaryPath": "/home/rpucadyi_integra/Documents/Cryoengine/CryoEngine/cryoengine-app",
+            "binaryArgs": []
+        }
+    ]
+}

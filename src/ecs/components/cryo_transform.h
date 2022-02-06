@@ -7,7 +7,7 @@ private:
     sf::Vector2f position;
 
 public:
-    cryoTRANSFORM(float x, float y);
+    cryoTRANSFORM(float x, float y, cryoOBJ& parent);
     ~cryoTRANSFORM();
 
     void tick(float dt);

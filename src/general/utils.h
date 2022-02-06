@@ -7,3 +7,4 @@ struct cryoAPPINFO {
   const char *app_title;
 };
 cryoAPPINFO* init_program(uint32 sw, uint32 sh, const char *title);
+  

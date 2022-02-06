@@ -1,5 +1,5 @@
 #include <vector>
-#include "../engine_defs.h"
+#include "../general/engine_defs.h"
 class cryoSYS_E {
 
 private:
@@ -9,7 +9,7 @@ public:
   cryoSYS_E();
   ~cryoSYS_E();
 
-  void create_entity(uint32 uuid, const char *name, std::vector<char*> t);
+  void create_entity(uint32 uuid, const char *name, std::vector<char*> t, float x, float y);
   void remove_entity();
 
   void tick(float dt);
