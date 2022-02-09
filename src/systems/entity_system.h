@@ -1,24 +1,24 @@
+#include <stdint.h>
 #include <vector>
-#include "../general/engine_defs.h"
-class cryoSYS_E {
+class EntitySystem {
 
 private:
-  std::vector<class cryoOBJ*> entities;
+  std::vector<class Entity*> entities;
 
 public:
-  cryoSYS_E();
-  ~cryoSYS_E();
+  EntitySystem();
+  ~EntitySystem();
 
-  void create_entity(uint32 uuid, const char *name, std::vector<char*> t, float x, float y);
+  void create_entity(uint32_t uuid, const char *name, std::vector<char*> t, float x, float y);
   void remove_entity();
 
   void tick(float dt);
 
-  cryoOBJ* get_entity_by_tag(char *tag);
+  Entity* get_entity_by_tag(char *tag);
 
   template <typename T>
   T* get_entity_by_type() {
-    for (cryoOBJ* obj : this->entities) {
+    for (Entity* obj : this->entities) {
       if(dynamic_cast<T*>(obj)) {
         return (T*)obj;
       }

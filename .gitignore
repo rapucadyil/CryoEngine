@@ -1,2 +1,5 @@
 *.o
 cryoengine-app
+.vscode/tasks.json
+
+.vscode/launch.json

@@ -1,26 +1,25 @@
 #include <stdlib.h>
 #include <stdint.h>
-#include "../general/engine_defs.h"
 #include <vector>
-class cryoOBJ {
+class Entity {
 protected:
     const char *name;
-    uint32 uuid;
+    uint32_t uuid;
 public:
     std::vector<char*> tags;
-    std::vector<class cryoCOMPONENT*> components;
+    std::vector<class Component*> components;
 
 public:
-    cryoOBJ(const char *n, uint32 id, std::vector<char*> t, float x, float y);
-    ~cryoOBJ();
+    Entity(const char *n, uint32_t id, std::vector<char*> t, float x, float y);
+    ~Entity();
     
     void tick(float dt);
     
-    void add_component(cryoCOMPONENT* cmp);
+    void add_component(Component* cmp);
 
     template <typename T>
     T* get_component() {
-        for (cryoCOMPONENT *cmp : components) {
+        for (Component *cmp : components){
             if(dynamic_cast<T*>(cmp)) {
                 return (T*)cmp;
             }
@@ -29,7 +28,7 @@ public:
     }
     
     const char *get_name() {return this->name;}
-    uint32 get_uuid() {return this->uuid;}
+    uint32_t get_uuid() {return this->uuid;}
 
 
 };

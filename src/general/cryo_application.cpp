@@ -9,6 +9,6 @@ cryoAPPLICATION::cryoAPPLICATION(uint32_t screen_width,
         this->is_running = true;
 }
 
-cryoAPPINFO::~cryoAPPLICATION(){
+cryoAPPLICATION::~cryoAPPLICATION(){
 
 }

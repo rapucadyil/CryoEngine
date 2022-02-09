@@ -1,14 +1,14 @@
 #ifndef CRYO_TRANSFORM_H
 #define CRYO_TRANSFORM_H
-#include "cryo_component.h"
+#include "component.h"
 #include <SFML/Graphics.hpp>
-class cryoTRANSFORM : public cryoCOMPONENT {
+class Transform : public Component {
 private:
     sf::Vector2f position;
 
 public:
-    cryoTRANSFORM(float x, float y, cryoOBJ& parent);
-    ~cryoTRANSFORM();
+    Transform(float x, float y, Entity& parent);
+    ~Transform();
 
     void tick(float dt);
 
