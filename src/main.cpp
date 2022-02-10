@@ -2,27 +2,11 @@
 #include "ecs/entity.h"
 #include "systems/entity_system.h"
 #include "systems/cryo_memory.h"
-
+#include "general/application.h"
 int main(int argc, char* argv[]) {
-    
-    sf::RenderWindow window(sf::VideoMode(1600, 900), "cryoengine-v6");
-    sf::CircleShape shape(100.0f);
-    shape.setFillColor(sf::Color::Red);
-    // game loop
-    while(window.isOpen()) {
-        sf::Event evt; 
-        while(window.pollEvent(evt)) {
-            if(evt.type == sf::Event::Closed) {
-                window.close();
-            }
-        }
-        //sys->tick(2.F);
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }
-    
-    
+
+    Application *app = new Application(1600, 900, "cryoengine-v7"); 
+    app->tick(2.f);
     return 0;
 }
 

@@ -1,10 +1,10 @@
 #ifndef CRYO_PHYSBODY_H
 #define CRYO_PHYSBODY_H
 
-#include "cryo_component.h"
+#include "component.h"
 #include <SFML/Graphics.hpp>
 
-class cryoPHYSBODY : public cryoCOMPONENT {
+class RigidBody : public Component {
 private:
     sf::Vector2f position;
     sf::FloatRect bounding_box;
@@ -32,8 +32,8 @@ public:
     void set_position(sf::Vector2f val) {this->position = val;}
 
 public:
-    cryoPHYSBODY(float rectL, float rectR, float rectW, float rectH, bool coll_flag, bool trig_flag, sf::Vector2f pos, cryoOBJ& parent);
-    ~cryoPHYSBODY();
+    RigidBody(float rectL, float rectR, float rectW, float rectH, bool coll_flag, bool trig_flag, sf::Vector2f pos, Entity& parent);
+    ~RigidBody();
 
     void tick(float dt);
 };
