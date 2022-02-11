@@ -2,7 +2,7 @@
 #include "../ecs/entity.h"
 #include <stdio.h>
 
-EntitySystem::EntitySystem() {
+EntitySystem::EntitySystem(){
     this->entities = std::vector<Entity*>();
 }
 
@@ -26,7 +26,6 @@ void EntitySystem::tick(float dt) {
         }
     }else{
         fprintf(stderr, "Error in Entity System @method:tick(float dt) - entities is empty\n");
-        exit(-1);
     }
 }
 

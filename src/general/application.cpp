@@ -1,5 +1,4 @@
 #include "application.h"
-
 Application::Application(uint32_t screen_width, 
     uint32_t screen_height, const char *title) 
 {
@@ -9,11 +8,19 @@ Application::Application(uint32_t screen_width,
     this->app_title = title;
     this->window = new sf::RenderWindow(sf::VideoMode(this->screen_width,
         this->screen_height), this->app_title);
+    this->entity_system = new EntitySystem();
+    this->entity_system->create_entity(0, "Player", {"Player", "MC"}, 10, 10);
     this->is_running = true;
 }
 
 Application::~Application(){
-    delete this;
+    free(this->window);
+    this->window = NULL;
+    delete this->window;
+    free(this->entity_system);
+    this->entity_system = NULL;
+    delete this->entity_system;
+    delete[] this->app_title;
 }
 
 void Application::tick(float dt) {
@@ -29,7 +36,8 @@ void Application::tick(float dt) {
                 }
             }
         }
-        this->render(2.f);
+        this->entity_system->tick(dt);
+        this->render(dt);
     }
 }
 

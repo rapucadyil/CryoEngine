@@ -7,7 +7,7 @@ all:
 	g++ -c "src/systems/entity_system.cpp" -o enttsys.o
 	g++ -c "src/ecs/components/component.cpp" -o cmps.o
 	g++ -c "src/ecs/components/transform.cpp" -o trnsfrm.o
-	
+
 	g++ -std=c++17 -ggdb -Iinclude -o cryoengine-app main.o app.o entity.o \
 	 enttsys.o cmps.o trnsfrm.o $(LIBS)
 
